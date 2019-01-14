@@ -13,9 +13,9 @@ deploy:
   secret_access_key: $AWS_SECRET_KEY
   bucket: "travis-build-demo"
   region: ap-south-1
+  local-dir: ./dist
   
 branches: 
   only:
     - master
-after_deploy:
-  - ls -la $TRAVIS_BUILD_DIR
+
