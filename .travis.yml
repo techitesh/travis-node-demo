@@ -7,4 +7,4 @@ cache:
 before_script:
   - npm install
 script:
-  - echo "hello world"
+  - echo "$TRAVIS_PULL_REQUEST_BRANCH"
