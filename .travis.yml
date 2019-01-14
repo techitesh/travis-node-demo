@@ -6,15 +6,16 @@ cache:
     - node_modules
 before_script:
   - npm install
-before_deploy:
-  - tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   bucket: "travis-build-demo"
   region: ap-south-1
-  file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
+  
 branches: 
   only:
     - master
+after_deploy:
+  - ls -la $TRAVIS_BUILD_DIR
