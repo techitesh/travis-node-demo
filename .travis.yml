@@ -7,4 +7,4 @@ cache:
 before_script:
   - npm install
 script:
-  - echo "$TRAVIS_PULL_REQUEST_BRANCH"
+  - echo $TRAVIS_PULL_REQUEST_BRANCH
